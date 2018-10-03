@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using eCinema.Data;
 using eCinema.Models;
 using eCinema.Services;
+using FileUploadControl;
 
 namespace eCinema
 {
@@ -32,7 +33,7 @@ namespace eCinema
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
-
+            services.AddTransient<UploadInterface, uploadfilerepo>();
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
